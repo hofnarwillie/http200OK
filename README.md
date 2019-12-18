@@ -9,9 +9,10 @@ https://hub.docker.com/repository/docker/hofnarwillie/http200ok
 ## Usage
 
 ```
-docker run \
-  -e HOST=www.host.com \
-  -d hofnarwillie/http200ok
+docker run -it \
+  -e HOST=0.0.0.0 \
+  -p 8080:80 \
+  hofnarwillie/http200ok
 ```
 
 > `HOST` defaults to `localhost`
