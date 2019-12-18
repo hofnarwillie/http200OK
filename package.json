@@ -1,0 +1,20 @@
+{
+  "name": "http200ok",
+  "version": "1.0.0",
+  "description": "An HTTP server always returning 200 OK",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "./test.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hofnarwillie/http200OK.git"
+  },
+  "author": "hofnarwillie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hofnarwillie/http200OK/issues"
+  },
+  "homepage": "https://github.com/hofnarwillie/http200OK#readme"
+}
