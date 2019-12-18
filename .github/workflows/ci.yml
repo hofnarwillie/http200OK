@@ -1,4 +1,4 @@
-name: Build
+name: CI
 
 on: [push]
 
@@ -17,10 +17,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build Docker Image
-      run: docker build -t hofnarwillie/HTTP200OK:$GITHUB_SHA -t hofnarwillie/HTTP200OK:latest .
+      run: docker build -t hofnarwillie/http200ok:$GITHUB_SHA -t hofnarwillie/http200ok:latest .
     - name: Login
       run: echo "${{ secrets.DOCKER_ACCESS_TOKEN }}" | docker login --username hofnarwillie --password-stdin
     - name: Push Docker Image
       run: |
-        docker push hofnarwillie/HTTP200OK:$GITHUB_SHA
-        docker push hofnarwillie/HTTP200OK:latest
+        docker push hofnarwillie/http200ok:$GITHUB_SHA
+        docker push hofnarwillie/http200ok:latest
