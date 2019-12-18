@@ -1,2 +1,17 @@
-# http200OK
-A test HTTP server returning 200 OK
+# http200ok
+
+[![Actions Status](https://github.com/hofnarwillie/http200OK/workflows/CI/badge.svg)](https://github.com/hofnarwillie/http200OK/actions)
+
+A test HTTP server listening at port 80 and returning 200 OK on all requests. 
+
+https://hub.docker.com/repository/docker/hofnarwillie/http200ok
+
+## Usage
+
+```
+docker run \
+  -e HOST=www.host.com \
+  -d hofnarwillie/http200ok
+```
+
+> `HOST` defaults to `localhost`

@@ -1,7 +1,6 @@
 const http = require('http');
 
 const {
-    PORT=80,
     HOST='localhost'
 } = process.env;
 
@@ -10,5 +9,5 @@ const server = http.createServer((req, res) => {
     res.end();
 });
 
-console.log(`listening at http://${HOST}:${PORT}`);
-server.listen(PORT, HOST);
+console.log(`listening at http://${HOST}`);
+server.listen(80, HOST);
