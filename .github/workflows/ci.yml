@@ -1,0 +1,26 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: Test
+      run: npm test
+
+  release:
+    runs-on: ubuntu-18.04
+    needs: build
+    if: github.ref == 'refs/heads/master'
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build Docker Image
+      run: docker build -t hofnarwillie/HTTP200OK:$GITHUB_SHA -t hofnarwillie/HTTP200OK:latest .
+    - name: Login
+      run: echo "${{ secrets.DOCKER_ACCESS_TOKEN }}" | docker login --username hofnarwillie --password-stdin
+    - name: Push Docker Image
+      run: |
+        docker push hofnarwillie/HTTP200OK:$GITHUB_SHA
+        docker push hofnarwillie/HTTP200OK:latest
